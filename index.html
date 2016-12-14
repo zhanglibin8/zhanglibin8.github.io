@@ -64,7 +64,7 @@
     <article id="post-数组增删改查" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/14/数组增删改查/" class="article-date">
-  <time datetime="2016-12-14T03:09:18.633Z" itemprop="datePublished">2016-12-14</time>
+  <time datetime="2016-12-14T15:41:32.590Z" itemprop="datePublished">2016-12-14</time>
 </a>
     
   </div>
@@ -83,10 +83,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h1><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><blockquote>
-<p>push</p>
-</blockquote>
-<ul>
+        <h1 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h1><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><ul>
+<li><p>push</p>
+</li>
 <li><p>向数组末尾增加项</p>
 </li>
 <li><p>返回数组新长度</p>
@@ -95,11 +94,8 @@
 </li>
 <li><p>其他实现方法：ary[ary.length]=1</p>
 </li>
-</ul>
-<blockquote>
-<p>pop</p>
-</blockquote>
-<ul>
+<li><p>pop</p>
+</li>
 <li><p>删除数组最后一项</p>
 </li>
 <li><p>返回被删除项</p>
@@ -108,33 +104,24 @@
 </li>
 <li><p>其他实现方法：ary.length–</p>
 </li>
-</ul>
-<blockquote>
-<p>shift</p>
-</blockquote>
-<ul>
+<li><p>shift</p>
+</li>
 <li><p>删除数组第一项</p>
 </li>
 <li><p>返回被删除的那一项</p>
 </li>
 <li><p>直接改变原数组</p>
 </li>
-</ul>
-<blockquote>
-<p>unshift</p>
-</blockquote>
-<ul>
+<li><p>unshift</p>
+</li>
 <li><p>向数组开头增加项</p>
 </li>
 <li><p>返回数组新长度</p>
 </li>
 <li><p>原数组改变</p>
 </li>
-</ul>
-<blockquote>
-<p>splice</p>
-</blockquote>
-<ul>
+<li><p>splice</p>
+</li>
 <li><p>splice(n,m)从索引n开始，删除m个元素</p>
 </li>
 <li><p>splice(n)从索引n开始，删除到数组末尾</p>
@@ -147,60 +134,58 @@
 </li>
 <li><p>ary.splice(ary.length,0,x)==ary.push(x)</p>
 </li>
-</ul>
-<blockquote>
-<p>slice</p>
-</blockquote>
-<ul>
+<li><p>slice</p>
+</li>
 <li><p>slice(n,m)从索引n开始截取到m-1处</p>
 </li>
 <li><p>slice(0) 相当于赋值数组</p>
 </li>
+<li><p>concat 拼接</p>
+</li>
+<li><p>toString 转化为字符串</p>
+</li>
 </ul>
-<blockquote>
-<p>concat 拼接</p>
-<p>toString 转化为字符串</p>
-<p>join(‘,’) 按照固定符号把数组拆分</p>
-<p>reverse 倒序数组</p>
-<p>sort 排序数组(10以内)</p>
-</blockquote>
+<p>-join(‘,’) 按照固定符号把数组拆分</p>
 <ul>
+<li><p>reverse 倒序数组</p>
+</li>
+<li><p>sort 排序数组(10以内)</p>
+</li>
 <li><p>sort(function(a,b){ return a-b })有小到大排序</p>
 </li>
 <li><p>sort(function(a,b){ return b-a })有大到小排序</p>
 </li>
+<li><p>forEach 遍历数组</p>
+</li>
 </ul>
-<blockquote>
-<p>forEach 遍历数组</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var ary = [1, 2, 3];</div><div class="line">ary.forEach( function ( item , index ) &#123;&#125; )</div></pre></td></tr></table></figure>
 <h2 id="更好用的方法"><a href="#更好用的方法" class="headerlink" title="更好用的方法"></a>更好用的方法</h2><h3 id="例：-var-arr-name-1-name-2-name-3-name-4"><a href="#例：-var-arr-name-1-name-2-name-3-name-4" class="headerlink" title="例： var arr=[{name:1},{name:2},{name:3},{name:4}];"></a>例： var arr=[{name:1},{name:2},{name:3},{name:4}];</h3><ul>
-<li>注意：还需要处理低版本IE的朋友请忽略以下方法</li>
+<li><p>注意：还需要处理低版本IE的朋友请忽略以下方法</p>
+</li>
+<li><p>增 push</p>
+</li>
 </ul>
-<blockquote>
-<p>增 push</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.push(&#123;name:5&#125;);</div><div class="line">console.log(arr);//[ &#123; name: 1 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125;, &#123; name: 5 &#125; ]</div></pre></td></tr></table></figure>
 <ul>
-<li>直接改变原数组</li>
+<li><p>直接改变原数组</p>
+</li>
+<li><p>删(过滤) filter</p>
+</li>
 </ul>
-<blockquote>
-<p>删(过滤) filter</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var res=arr.filter(function (item, index) &#123;</div><div class="line">    return item.name!==1//过滤掉name为1的那一项</div><div class="line">&#125;);</div><div class="line">console.log(arr)//[ &#123; name: 1 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div><div class="line">console.log(res)//[ &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div></pre></td></tr></table></figure>
 <ul>
-<li>返回的新数组才是过滤好的结果，原数组不变</li>
+<li><p>返回的新数组才是过滤好的结果，原数组不变</p>
+</li>
+<li><p>改 map</p>
+</li>
 </ul>
-<blockquote>
-<p>改 map</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var obj=&#123;name:100&#125;;</div><div class="line">var res=arr.map(function (item, index) &#123;</div><div class="line">    if(item.name===1)&#123;</div><div class="line">        return obj</div><div class="line">    &#125;</div><div class="line">    return item;</div><div class="line">&#125;);</div><div class="line">console.log(arr);//[ &#123; name: 1 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div><div class="line">console.log(res)//[ &#123; name: 100 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div></pre></td></tr></table></figure>
 <ul>
-<li>返回的新数组才是改变后的结果，原数组不变</li>
+<li><p>返回的新数组才是改变后的结果，原数组不变</p>
+</li>
+<li><p>查 find</p>
+</li>
 </ul>
-<blockquote>
-<p>查 find</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var res=arr.find(function (item, index) &#123;</div><div class="line">    return item.name==1</div><div class="line">&#125;)</div><div class="line">console.log(arr)//[ &#123; name: 1 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div><div class="line">console.log(res)//&#123; name: 1 &#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>返回结果才是要查找的项，原数组不变</li>
@@ -209,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/数组增删改查/" data-id="ciwod0dk400020cqazk1sh9re" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/14/数组增删改查/" data-id="ciwp41f7p0000wsqazazl1880" class="article-share-link">Share</a>
       
       
     </footer>
@@ -273,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/继承/" data-id="ciwod0dk900030cqaezqpq7r4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/14/继承/" data-id="ciwp41f8k0003wsqavsjqyntw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -310,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/在String上扩展方法/" data-id="ciwod0djy00010cqafv91pf67" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/14/在String上扩展方法/" data-id="ciwp41f8e0002wsqaucf7z252" class="article-share-link">Share</a>
       
       
     </footer>
@@ -355,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/angular/" data-id="ciwod0djn00000cqag1cdw8s7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/14/angular/" data-id="ciwp41f820001wsqavm0riyi8" class="article-share-link">Share</a>
       
       
     </footer>
