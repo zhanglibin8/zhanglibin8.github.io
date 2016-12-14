@@ -61,96 +61,25 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-继承" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/14/继承/" class="article-date">
-  <time datetime="2016-12-14T03:03:33.361Z" itemprop="datePublished">2016-12-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="继承-子类继承父类的方法或者属性"><a href="#继承-子类继承父类的方法或者属性" class="headerlink" title="继承: 子类继承父类的方法或者属性"></a>继承: 子类继承父类的方法或者属性</h1><h2 id="1-原型继承-子类的原型指向父类的实例-B-prototype-new-A"><a href="#1-原型继承-子类的原型指向父类的实例-B-prototype-new-A" class="headerlink" title="1 .原型继承: 子类的原型指向父类的实例   B.prototype = new A();"></a>1 .原型继承: 子类的原型指向父类的实例   B.prototype = new A();</h2><ul>
-<li>父类的私有和公有方法都是子类的公有方法</li>
-<li>无论是定义在父类实例上的还是原型上的方法，相对于子类来说都是公有方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function A()&#123;</div><div class="line">    this.x = 100;</div><div class="line">    this.getY = function ()&#123;&#125;</div><div class="line">&#125;</div><div class="line">A.prototype.getX = function ()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function B()&#123;</div><div class="line">    //this.x = 200;</div><div class="line">&#125;</div><div class="line">B.prototype = new A(); //核心代码</div><div class="line">B.prototype.constructor = B;</div><div class="line"></div><div class="line">var a = new A();</div><div class="line"></div><div class="line">var b = new B();</div><div class="line"></div><div class="line">b.getX(); //100</div><div class="line">console.dir(b);</div></pre></td></tr></table></figure>
-<h1 id="2-call继承-：-在子类的构造函数中执行-C-call-this"><a href="#2-call继承-：-在子类的构造函数中执行-C-call-this" class="headerlink" title="2.call继承 ： 在子类的构造函数中执行 C.call(this)"></a>2.call继承 ： 在子类的构造函数中执行 C.call(this)</h1><ul>
-<li>父类.call(this)</li>
-<li>把父类的私有方法变成子类的私有方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function C()&#123;</div><div class="line">    this.x = 100; // d.x = 100;</div><div class="line">&#125;</div><div class="line">C.prototype.getX = function ()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line">function D()&#123;</div><div class="line">    C.call(this); //核心代码 把C父类函数中的this修改成当前的this(当前实例),相当于把C父类构造函数中的私有属性添加给d实例一份</div><div class="line">&#125;</div><div class="line">var d = new D();</div><div class="line">console.log(d); // x : 100</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="3-冒充对象继承-在子类的构造函数中遍历父类的一个实例。并且把所有遍历出的属性和方法，分别添加给子类实例。"><a href="#3-冒充对象继承-在子类的构造函数中遍历父类的一个实例。并且把所有遍历出的属性和方法，分别添加给子类实例。" class="headerlink" title="3.冒充对象继承 : 在子类的构造函数中遍历父类的一个实例。并且把所有遍历出的属性和方法，分别添加给子类实例。"></a>3.冒充对象继承 : 在子类的构造函数中遍历父类的一个实例。并且把所有遍历出的属性和方法，分别添加给子类实例。</h2><ul>
-<li>如果在遍历过程中不使用hasOwnProperty等方法过滤出公有属性，那么就是把父类的私有和公有方法都变成子类的私有方法,都是添加到子类实例上的方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function E()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">E.prototype.getX = function ()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line">function F()&#123;</div><div class="line">    var e = new E(); //父类一个实例</div><div class="line">    for(var key in e)&#123; //</div><div class="line">        //console.log(key); // x : 100, getX : FN??</div><div class="line"></div><div class="line">        this[key] = e[key]; // f.x = e.x   f.getX = e.getX;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var f = new F();</div><div class="line">console.log(f); //</div></pre></td></tr></table></figure>
-<p>##　4．组合继承  原型继承+call继承<br>－　由于原型继承是把私有+公有全部都变成了子类的公有,call继承就是把私有变成私有. 组合在一起就子类的公有方法中多了一套父类的私有方法。但是调用时优先使用私有方法.即使公有上还有一个相同的，那么也不会出现问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function G()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">G.prototype.getX = function ()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line">function H()&#123;</div><div class="line">    G.call(this); // call继承实现</div><div class="line">&#125;</div><div class="line">H.prototype = new G(); //原型继承实现</div><div class="line">H.prototype.constructor = H;</div><div class="line">var h = new H();</div><div class="line">console.log(h);</div></pre></td></tr></table></figure>
-<h2 id="5-中间件继承-proto这个属性在低版本ie中是不可以使用的。"><a href="#5-中间件继承-proto这个属性在低版本ie中是不可以使用的。" class="headerlink" title="5.中间件继承    proto这个属性在低版本ie中是不可以使用的。"></a>5.中间件继承    <strong>proto</strong>这个属性在低版本ie中是不可以使用的。</h2><ul>
-<li>子类的原型上<strong>proto</strong>属性本来应该是指向Object.prototype的。但是现在却指向父类的原型。所以就可以继承父类原型上的方法。但是由于父类的原型也存在<strong>proto</strong>属性，所以并不会破坏原来的只想。只不过是多了一个中间项。</li>
-<li>把父类的公有方法变成子类的公有方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function J()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">J.prototype.getX = function ()&#123;&#125;</div><div class="line"></div><div class="line">function K()&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">K.prototype.__proto__ = J.prototype; // 核心代码</div><div class="line">var k = new K();</div><div class="line">console.log(k);</div></pre></td></tr></table></figure>
-<h2 id="6-Object-xxx-Object-prototype-xxx-不兼容"><a href="#6-Object-xxx-Object-prototype-xxx-不兼容" class="headerlink" title="6.Object.xxx  Object.prototype.xxx 不兼容"></a>6.Object.xxx  Object.prototype.xxx 不兼容</h2><ul>
-<li>Object.create(obj); 作用: Object.create本身是一个方法，需要一个对象(obj)参数。 返回一个类的实例，并且这个类的原型是传进来的obj参数</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function M()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">M.prototype.getX = function ()&#123;&#125;</div><div class="line">function N()&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">//N.prototype = Object.create(M.prototype);  // a</div><div class="line">N.prototype = Create(M.prototype);  // a</div><div class="line">// a.prototype = M.prototype</div><div class="line">var n = new N();</div><div class="line">console.log(n);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>作用: 需要一个对象(obj)参数。 返回一个类的实例，并且这个类的原型是传进来的obj参数</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function Create(obj)&#123;</div><div class="line">    function Class()&#123;&#125;;</div><div class="line">    Class.prototype = obj;</div><div class="line">    return new Class();</div><div class="line">    // new Class.__proto__ == obj   true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/继承/" data-id="ciwocrp9x0003twqaiijzd252" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-在String上扩展方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/14/在String上扩展方法/" class="article-date">
-  <time datetime="2016-12-14T03:03:14.875Z" itemprop="datePublished">2016-12-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="在String上扩展方法"><a href="#在String上扩展方法" class="headerlink" title="在String上扩展方法"></a>在String上扩展方法</h1><h2 id="获取浏览器地址栏信息"><a href="#获取浏览器地址栏信息" class="headerlink" title="获取浏览器地址栏信息"></a>获取浏览器地址栏信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">;(function () &#123;</div><div class="line">    function queryURLParameter() &#123;</div><div class="line">        var obj = &#123;&#125;,</div><div class="line">            reg = /([^?&amp;=#]+)=([^?&amp;=#]+)/g;</div><div class="line">        this.replace(reg, function () &#123;</div><div class="line">            obj[arguments[1]] = arguments[2];</div><div class="line">        &#125;);</div><div class="line">        //-&gt;获取hash值</div><div class="line">        reg = /#([^?&amp;=#]+)/;</div><div class="line">        if (reg.test(this)) &#123;</div><div class="line">            obj[&apos;HASH&apos;] = reg.exec(this)[1];</div><div class="line">        &#125;</div><div class="line">        return obj;</div><div class="line">    &#125;</div><div class="line">    String.prototype.queryURLParameter = queryURLParameter;</div><div class="line">    &#125;)();</div></pre></td></tr></table></figure>
-<h2 id="格式化时间字符串"><a href="#格式化时间字符串" class="headerlink" title="格式化时间字符串"></a>格式化时间字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">   ;(function () &#123;</div><div class="line">   function formatTime(template) &#123;</div><div class="line">        template = template || &apos;&#123;0&#125;年&#123;1&#125;月&#123;2&#125;日 &#123;3&#125;时&#123;4]分&#123;5]秒&apos;;</div><div class="line">        var ary = this.match(/\d+/g);</div><div class="line">        template = template.replace(/\&#123;(\d+)\&#125;/g, function () &#123;</div><div class="line">            var index = arguments[1],</div><div class="line">                result = ary[index];</div><div class="line">            result = result || &apos;00&apos;;</div><div class="line">            result.length &lt; 2 ? result = &apos;0&apos; + result : null;</div><div class="line">            return ary[arguments[1]];</div><div class="line">        &#125;);</div><div class="line">        return template;</div><div class="line">    &#125;</div><div class="line">    String.prototype.formatTime = formatTime;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/在String上扩展方法/" data-id="ciwocrp9h0001twqaju4w3r22" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-数组增删改查" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/14/数组增删改查/" class="article-date">
-  <time datetime="2016-12-14T03:02:15.608Z" itemprop="datePublished">2016-12-14</time>
+  <time datetime="2016-12-14T03:06:30.458Z" itemprop="datePublished">2016-12-14</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/14/数组增删改查/">数组的操作</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -280,7 +209,108 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/数组增删改查/" data-id="ciwocrp9q0002twqa1wtfr8v0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/14/数组增删改查/" data-id="ciwocvkde0002ucqaqtxa7qn0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-继承" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/14/继承/" class="article-date">
+  <time datetime="2016-12-14T03:06:30.428Z" itemprop="datePublished">2016-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/14/继承/">继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="继承-子类继承父类的方法或者属性"><a href="#继承-子类继承父类的方法或者属性" class="headerlink" title="继承: 子类继承父类的方法或者属性"></a>继承: 子类继承父类的方法或者属性</h1><h2 id="1-原型继承-子类的原型指向父类的实例-B-prototype-new-A"><a href="#1-原型继承-子类的原型指向父类的实例-B-prototype-new-A" class="headerlink" title="1 .原型继承: 子类的原型指向父类的实例   B.prototype = new A();"></a>1 .原型继承: 子类的原型指向父类的实例   B.prototype = new A();</h2><ul>
+<li>父类的私有和公有方法都是子类的公有方法</li>
+<li>无论是定义在父类实例上的还是原型上的方法，相对于子类来说都是公有方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function A()&#123;</div><div class="line">    this.x = 100;</div><div class="line">    this.getY = function ()&#123;&#125;</div><div class="line">&#125;</div><div class="line">A.prototype.getX = function ()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function B()&#123;</div><div class="line">    //this.x = 200;</div><div class="line">&#125;</div><div class="line">B.prototype = new A(); //核心代码</div><div class="line">B.prototype.constructor = B;</div><div class="line"></div><div class="line">var a = new A();</div><div class="line"></div><div class="line">var b = new B();</div><div class="line"></div><div class="line">b.getX(); //100</div><div class="line">console.dir(b);</div></pre></td></tr></table></figure>
+<h1 id="2-call继承-：-在子类的构造函数中执行-C-call-this"><a href="#2-call继承-：-在子类的构造函数中执行-C-call-this" class="headerlink" title="2.call继承 ： 在子类的构造函数中执行 C.call(this)"></a>2.call继承 ： 在子类的构造函数中执行 C.call(this)</h1><ul>
+<li>父类.call(this)</li>
+<li>把父类的私有方法变成子类的私有方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function C()&#123;</div><div class="line">    this.x = 100; // d.x = 100;</div><div class="line">&#125;</div><div class="line">C.prototype.getX = function ()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line">function D()&#123;</div><div class="line">    C.call(this); //核心代码 把C父类函数中的this修改成当前的this(当前实例),相当于把C父类构造函数中的私有属性添加给d实例一份</div><div class="line">&#125;</div><div class="line">var d = new D();</div><div class="line">console.log(d); // x : 100</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-冒充对象继承-在子类的构造函数中遍历父类的一个实例。并且把所有遍历出的属性和方法，分别添加给子类实例。"><a href="#3-冒充对象继承-在子类的构造函数中遍历父类的一个实例。并且把所有遍历出的属性和方法，分别添加给子类实例。" class="headerlink" title="3.冒充对象继承 : 在子类的构造函数中遍历父类的一个实例。并且把所有遍历出的属性和方法，分别添加给子类实例。"></a>3.冒充对象继承 : 在子类的构造函数中遍历父类的一个实例。并且把所有遍历出的属性和方法，分别添加给子类实例。</h2><ul>
+<li>如果在遍历过程中不使用hasOwnProperty等方法过滤出公有属性，那么就是把父类的私有和公有方法都变成子类的私有方法,都是添加到子类实例上的方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function E()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">E.prototype.getX = function ()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line">function F()&#123;</div><div class="line">    var e = new E(); //父类一个实例</div><div class="line">    for(var key in e)&#123; //</div><div class="line">        //console.log(key); // x : 100, getX : FN??</div><div class="line"></div><div class="line">        this[key] = e[key]; // f.x = e.x   f.getX = e.getX;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var f = new F();</div><div class="line">console.log(f); //</div></pre></td></tr></table></figure>
+<p>##　4．组合继承  原型继承+call继承<br>－　由于原型继承是把私有+公有全部都变成了子类的公有,call继承就是把私有变成私有. 组合在一起就子类的公有方法中多了一套父类的私有方法。但是调用时优先使用私有方法.即使公有上还有一个相同的，那么也不会出现问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function G()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">G.prototype.getX = function ()&#123;</div><div class="line">    console.log(this.x);</div><div class="line">&#125;</div><div class="line">function H()&#123;</div><div class="line">    G.call(this); // call继承实现</div><div class="line">&#125;</div><div class="line">H.prototype = new G(); //原型继承实现</div><div class="line">H.prototype.constructor = H;</div><div class="line">var h = new H();</div><div class="line">console.log(h);</div></pre></td></tr></table></figure>
+<h2 id="5-中间件继承-proto这个属性在低版本ie中是不可以使用的。"><a href="#5-中间件继承-proto这个属性在低版本ie中是不可以使用的。" class="headerlink" title="5.中间件继承    proto这个属性在低版本ie中是不可以使用的。"></a>5.中间件继承    <strong>proto</strong>这个属性在低版本ie中是不可以使用的。</h2><ul>
+<li>子类的原型上<strong>proto</strong>属性本来应该是指向Object.prototype的。但是现在却指向父类的原型。所以就可以继承父类原型上的方法。但是由于父类的原型也存在<strong>proto</strong>属性，所以并不会破坏原来的只想。只不过是多了一个中间项。</li>
+<li>把父类的公有方法变成子类的公有方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function J()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">J.prototype.getX = function ()&#123;&#125;</div><div class="line"></div><div class="line">function K()&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">K.prototype.__proto__ = J.prototype; // 核心代码</div><div class="line">var k = new K();</div><div class="line">console.log(k);</div></pre></td></tr></table></figure>
+<h2 id="6-Object-xxx-Object-prototype-xxx-不兼容"><a href="#6-Object-xxx-Object-prototype-xxx-不兼容" class="headerlink" title="6.Object.xxx  Object.prototype.xxx 不兼容"></a>6.Object.xxx  Object.prototype.xxx 不兼容</h2><ul>
+<li>Object.create(obj); 作用: Object.create本身是一个方法，需要一个对象(obj)参数。 返回一个类的实例，并且这个类的原型是传进来的obj参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function M()&#123;</div><div class="line">    this.x = 100;</div><div class="line">&#125;</div><div class="line">M.prototype.getX = function ()&#123;&#125;</div><div class="line">function N()&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">//N.prototype = Object.create(M.prototype);  // a</div><div class="line">N.prototype = Create(M.prototype);  // a</div><div class="line">// a.prototype = M.prototype</div><div class="line">var n = new N();</div><div class="line">console.log(n);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>作用: 需要一个对象(obj)参数。 返回一个类的实例，并且这个类的原型是传进来的obj参数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function Create(obj)&#123;</div><div class="line">    function Class()&#123;&#125;;</div><div class="line">    Class.prototype = obj;</div><div class="line">    return new Class();</div><div class="line">    // new Class.__proto__ == obj   true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/14/继承/" data-id="ciwocvkdk0003ucqa5nkz8qhd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-在String上扩展方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/14/在String上扩展方法/" class="article-date">
+  <time datetime="2016-12-14T03:06:30.396Z" itemprop="datePublished">2016-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/14/在String上扩展方法/">在String上扩展方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="在String上扩展方法"><a href="#在String上扩展方法" class="headerlink" title="在String上扩展方法"></a>在String上扩展方法</h1><h2 id="获取浏览器地址栏信息"><a href="#获取浏览器地址栏信息" class="headerlink" title="获取浏览器地址栏信息"></a>获取浏览器地址栏信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">;(function () &#123;</div><div class="line">    function queryURLParameter() &#123;</div><div class="line">        var obj = &#123;&#125;,</div><div class="line">            reg = /([^?&amp;=#]+)=([^?&amp;=#]+)/g;</div><div class="line">        this.replace(reg, function () &#123;</div><div class="line">            obj[arguments[1]] = arguments[2];</div><div class="line">        &#125;);</div><div class="line">        //-&gt;获取hash值</div><div class="line">        reg = /#([^?&amp;=#]+)/;</div><div class="line">        if (reg.test(this)) &#123;</div><div class="line">            obj[&apos;HASH&apos;] = reg.exec(this)[1];</div><div class="line">        &#125;</div><div class="line">        return obj;</div><div class="line">    &#125;</div><div class="line">    String.prototype.queryURLParameter = queryURLParameter;</div><div class="line">    &#125;)();</div></pre></td></tr></table></figure>
+<h2 id="格式化时间字符串"><a href="#格式化时间字符串" class="headerlink" title="格式化时间字符串"></a>格式化时间字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">   ;(function () &#123;</div><div class="line">   function formatTime(template) &#123;</div><div class="line">        template = template || &apos;&#123;0&#125;年&#123;1&#125;月&#123;2&#125;日 &#123;3&#125;时&#123;4]分&#123;5]秒&apos;;</div><div class="line">        var ary = this.match(/\d+/g);</div><div class="line">        template = template.replace(/\&#123;(\d+)\&#125;/g, function () &#123;</div><div class="line">            var index = arguments[1],</div><div class="line">                result = ary[index];</div><div class="line">            result = result || &apos;00&apos;;</div><div class="line">            result.length &lt; 2 ? result = &apos;0&apos; + result : null;</div><div class="line">            return ary[arguments[1]];</div><div class="line">        &#125;);</div><div class="line">        return template;</div><div class="line">    &#125;</div><div class="line">    String.prototype.formatTime = formatTime;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/14/在String上扩展方法/" data-id="ciwocvkd60001ucqaspeyfv7w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -325,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/14/angular/" data-id="ciwocrp940000twqaxh60s26n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/14/angular/" data-id="ciwocvkct0000ucqa3ven8h4x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -365,15 +395,15 @@
       <ul>
         
           <li>
-            <a href="/2016/12/14/继承/">(no title)</a>
+            <a href="/2016/12/14/数组增删改查/">数组的操作</a>
           </li>
         
           <li>
-            <a href="/2016/12/14/在String上扩展方法/">(no title)</a>
+            <a href="/2016/12/14/继承/">继承</a>
           </li>
         
           <li>
-            <a href="/2016/12/14/数组增删改查/">(no title)</a>
+            <a href="/2016/12/14/在String上扩展方法/">在String上扩展方法</a>
           </li>
         
           <li>
