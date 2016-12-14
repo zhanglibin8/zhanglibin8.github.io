@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数组的操作常用方法
+push
+
+
+向数组末尾增加项
+
+返回数组新长度
+
+直接改变原数组
+
+其他实现方法：ary[ary.length]=1
+
+
+
+pop
+
+
+删除数组最后一项
+
+返回被删除项
+
+直接改变原数组
+
+其他实现方法：ary.length–
+
+
+
+shift
+
+
+删除数组第一项
+
+返回被删除的那一项
+
+直接改变原数组
+
+
+
+unshift
+
+
+向数组开头增加项
+
+返回数组新长度
+
+原数组改">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2016/12/14/数组增删改查/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数组的操作常用方法
+push
+
+
+向数组末尾增加项
+
+返回数组新长度
+
+直接改变原数组
+
+其他实现方法：ary[ary.length]=1
+
+
+
+pop
+
+
+删除数组最后一项
+
+返回被删除项
+
+直接改变原数组
+
+其他实现方法：ary.length–
+
+
+
+shift
+
+
+删除数组第一项
+
+返回被删除的那一项
+
+直接改变原数组
+
+
+
+unshift
+
+
+向数组开头增加项
+
+返回数组新长度
+
+原数组改">
+<meta property="og:updated_time" content="2016-12-14T03:02:15.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="数组的操作常用方法
+push
+
+
+向数组末尾增加项
+
+返回数组新长度
+
+直接改变原数组
+
+其他实现方法：ary[ary.length]=1
+
+
+
+pop
+
+
+删除数组最后一项
+
+返回被删除项
+
+直接改变原数组
+
+其他实现方法：ary.length–
+
+
+
+shift
+
+
+删除数组第一项
+
+返回被删除的那一项
+
+直接改变原数组
+
+
+
+unshift
+
+
+向数组开头增加项
+
+返回数组新长度
+
+原数组改">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-数组增删改查" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/14/数组增删改查/" class="article-date">
+  <time datetime="2016-12-14T03:02:15.608Z" itemprop="datePublished">2016-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h1><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><blockquote>
+<p>push</p>
+</blockquote>
+<ul>
+<li><p>向数组末尾增加项</p>
+</li>
+<li><p>返回数组新长度</p>
+</li>
+<li><p>直接改变原数组</p>
+</li>
+<li><p>其他实现方法：ary[ary.length]=1</p>
+</li>
+</ul>
+<blockquote>
+<p>pop</p>
+</blockquote>
+<ul>
+<li><p>删除数组最后一项</p>
+</li>
+<li><p>返回被删除项</p>
+</li>
+<li><p>直接改变原数组</p>
+</li>
+<li><p>其他实现方法：ary.length–</p>
+</li>
+</ul>
+<blockquote>
+<p>shift</p>
+</blockquote>
+<ul>
+<li><p>删除数组第一项</p>
+</li>
+<li><p>返回被删除的那一项</p>
+</li>
+<li><p>直接改变原数组</p>
+</li>
+</ul>
+<blockquote>
+<p>unshift</p>
+</blockquote>
+<ul>
+<li><p>向数组开头增加项</p>
+</li>
+<li><p>返回数组新长度</p>
+</li>
+<li><p>原数组改变</p>
+</li>
+</ul>
+<blockquote>
+<p>splice</p>
+</blockquote>
+<ul>
+<li><p>splice(n,m)从索引n开始，删除m个元素</p>
+</li>
+<li><p>splice(n)从索引n开始，删除到数组末尾</p>
+</li>
+<li><p>ary.splice(ary.length-1,0)==ary.pop()</p>
+</li>
+<li><p>splice(n,m,x)从索引n开始删除m个，用x替换删除项</p>
+</li>
+<li><p>splice(n,0,x)从索引n开始，删除0个(不删除)，把x增加到n的前面</p>
+</li>
+<li><p>ary.splice(ary.length,0,x)==ary.push(x)</p>
+</li>
+</ul>
+<blockquote>
+<p>slice</p>
+</blockquote>
+<ul>
+<li><p>slice(n,m)从索引n开始截取到m-1处</p>
+</li>
+<li><p>slice(0) 相当于赋值数组</p>
+</li>
+</ul>
+<blockquote>
+<p>concat 拼接</p>
+<p>toString 转化为字符串</p>
+<p>join(‘,’) 按照固定符号把数组拆分</p>
+<p>reverse 倒序数组</p>
+<p>sort 排序数组(10以内)</p>
+</blockquote>
+<ul>
+<li><p>sort(function(a,b){ return a-b })有小到大排序</p>
+</li>
+<li><p>sort(function(a,b){ return b-a })有大到小排序</p>
+</li>
+</ul>
+<blockquote>
+<p>forEach 遍历数组</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var ary = [1, 2, 3];</div><div class="line">ary.forEach( function ( item , index ) &#123;&#125; )</div></pre></td></tr></table></figure>
+<h2 id="更好用的方法"><a href="#更好用的方法" class="headerlink" title="更好用的方法"></a>更好用的方法</h2><h3 id="例：-var-arr-name-1-name-2-name-3-name-4"><a href="#例：-var-arr-name-1-name-2-name-3-name-4" class="headerlink" title="例： var arr=[{name:1},{name:2},{name:3},{name:4}];"></a>例： var arr=[{name:1},{name:2},{name:3},{name:4}];</h3><ul>
+<li>注意：还需要处理低版本IE的朋友请忽略以下方法</li>
+</ul>
+<blockquote>
+<p>增 push</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.push(&#123;name:5&#125;);</div><div class="line">console.log(arr);//[ &#123; name: 1 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125;, &#123; name: 5 &#125; ]</div></pre></td></tr></table></figure>
+<ul>
+<li>直接改变原数组</li>
+</ul>
+<blockquote>
+<p>删(过滤) filter</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var res=arr.filter(function (item, index) &#123;</div><div class="line">    return item.name!==1//过滤掉name为1的那一项</div><div class="line">&#125;);</div><div class="line">console.log(arr)//[ &#123; name: 1 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div><div class="line">console.log(res)//[ &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div></pre></td></tr></table></figure>
+<ul>
+<li>返回的新数组才是过滤好的结果，原数组不变</li>
+</ul>
+<blockquote>
+<p>改 map</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var obj=&#123;name:100&#125;;</div><div class="line">var res=arr.map(function (item, index) &#123;</div><div class="line">    if(item.name===1)&#123;</div><div class="line">        return obj</div><div class="line">    &#125;</div><div class="line">    return item;</div><div class="line">&#125;);</div><div class="line">console.log(arr);//[ &#123; name: 1 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div><div class="line">console.log(res)//[ &#123; name: 100 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div></pre></td></tr></table></figure>
+<ul>
+<li>返回的新数组才是改变后的结果，原数组不变</li>
+</ul>
+<blockquote>
+<p>查 find</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var res=arr.find(function (item, index) &#123;</div><div class="line">    return item.name==1</div><div class="line">&#125;)</div><div class="line">console.log(arr)//[ &#123; name: 1 &#125;, &#123; name: 2 &#125;, &#123; name: 3 &#125;, &#123; name: 4 &#125; ]</div><div class="line">console.log(res)//&#123; name: 1 &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>返回结果才是要查找的项，原数组不变</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/14/数组增删改查/" data-id="ciwocrp9q0002twqa1wtfr8v0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/14/在String上扩展方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/14/angular/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">angular</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/14/继承/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/14/在String上扩展方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/14/数组增删改查/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/14/angular/">angular</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
