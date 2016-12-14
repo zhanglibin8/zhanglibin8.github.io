@@ -1,156 +1,106 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="pragma" content="no-cache">
-  <meta http-equiv="cache-control" content="no-cache">
-  <meta http-equiv="expires" content="0">
-  
-  <title>Hexo</title>
-  <meta name="author" content="John Doe">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+    
+	<title>Hexo</title>
+    <meta name="author" content="John Doe">
+    
+	<meta name="description" content="undefined"> <!-- TODO: truncate -->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-  <meta property="og:site_name" content="Hexo"/>
+	<link href="atom.xml" rel="alternate" title="Hexo" type="application/atom+xml">
+	<link href="/favicon.ico" rel="shortcut icon">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/custom.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/hljs.css" media="screen, projection" rel="stylesheet" type="text/css">
 
-  
-    <meta property="og:image" content="undefined"/>
-  
+    <link href='//fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![}]-->
 
-  
-  
-    <link href="/favicon.png" rel="icon">
-  
-  
-  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+    <!-- remove or comment it to disable ajaxification -->   
+    <!-- <script src="/javascripts/ajaxify.js"></script> -->
 
-  <!-- analytics -->
-  
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-70812759-1', 'auto');
-  ga('send', 'pageview');
-</script>
+    
 
-
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
+    
 
 </head>
 
- <body>  
-  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-	  <a class="navbar-brand" href="/">Hexo</a>
-      <div class="collapse navbar-collapse nav-menu">
-		<ul class="nav navbar-nav">
-		  
-		  <li>
-			<a href="/archives" title="All the articles.">
-			  <i class=""></i>Archives
-			</a>
-		  </li>
-		  
-		  <li>
-			<a href="/categories" title="All the categories.">
-			  <i class=""></i>Categories
-			</a>
-		  </li>
-		  
-		  <li>
-			<a href="/tags" title="All the tags.">
-			  <i class=""></i>Tags
-			</a>
-		  </li>
-		  
-		  <li>
-			<a href="/about" title="About me.">
-			  <i class=""></i>About
-			</a>
-		  </li>
-		  
-		  <li>
-			<a href="/atom.xml" title="Subscribe me.">
-			  <i class=""></i>RSS
-			</a>
-		  </li>
-		  
-		</ul>
-      </div>
-    </div> <!-- container -->
-</nav>
-<div class="clearfix"></div>
 
-  <div class="container">
-  	<div class="content">
-    	 <div class="page-header logo">
-  <h1>Hexo<span class="blink-fast">∎</span></h1>
+<body>
+    <div id="wrapper">
+    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
+<h1 class="animated bounceInDown">
+    <div id="headerbg">
+        Hexo
+    </div>
+</h1>
+<span class="subtitle">null</span>
+<br>
+
+<ul id="social-links" style="text-align:center; clear:both;">
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+
+<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
+<ul id="nav">
+	<li id="ajax"><a href="/index.html">Home</a></li>
+	<li id="ajax"><a href="/archives/index.html">Archives</a></li>
+	<li id="ajax"><a href="/tags/index.html">Tags</a></li>
+    <li><a href="/atom.xml">RSS</a></li>
+    
+    <li>
+    <div id="dark">
+        <form method="get" action="/search.html" id="search">
+            <input name="query" type="text" placeholder="Search..." x-webkit-speech />
+        </form>
+    </div>
+    </li>
+        
+</ul>
+
+
+
+
+</header>
+
+<div id="toload">
+<!-- begin toload -->
+    <div id="content" class="inner">
+        
+
+
+
+  <article class="post">
+	<h2 class="title">
+		<a href="2016/12/14/继承/">继承</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: <time datetime="2016-12-14T15:49:16.107Z" itemprop="datePublished">Dec 14, 2016</time>
 </div>
-
-<div class="row page">
-
-	
-	<div class="col-md-9">
-	
-
-		<div class="slogan">
-      <i class="fa fa-heart blink-slow"></i>
-      Keep and carry on.
-</div>    
-		<div id="top_search"></div>
-		<div class="mypage">
-		
-		<!-- title and entry -->
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2016/12/14/继承/" >继承</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2016-12-14  </div>
-		</div>
-	</div>
-	
+      <div class="tags">Tags: 
 
 
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="继承-子类继承父类的方法或者属性"><a href="#继承-子类继承父类的方法或者属性" class="headerlink" title="继承: 子类继承父类的方法或者属性"></a>继承: 子类继承父类的方法或者属性</h1><h2 id="1-原型继承-子类的原型指向父类的实例-B-prototype-new-A"><a href="#1-原型继承-子类的原型指向父类的实例-B-prototype-new-A" class="headerlink" title="1 .原型继承: 子类的原型指向父类的实例   B.prototype = new A();"></a>1 .原型继承: 子类的原型指向父类的实例   B.prototype = new A();</h2><ul>
+</div>
+    </div>
+      
+        <h1 id="继承-子类继承父类的方法或者属性"><a href="#继承-子类继承父类的方法或者属性" class="headerlink" title="继承: 子类继承父类的方法或者属性"></a>继承: 子类继承父类的方法或者属性</h1><h2 id="1-原型继承-子类的原型指向父类的实例-B-prototype-new-A"><a href="#1-原型继承-子类的原型指向父类的实例-B-prototype-new-A" class="headerlink" title="1 .原型继承: 子类的原型指向父类的实例   B.prototype = new A();"></a>1 .原型继承: 子类的原型指向父类的实例   B.prototype = new A();</h2><ul>
 <li>父类的私有和公有方法都是子类的公有方法</li>
 <li>无论是定义在父类实例上的还是原型上的方法，相对于子类来说都是公有方法</li>
 </ul>
@@ -179,33 +129,29 @@ var _hmt = _hmt || [];
 <p>作用: 需要一个对象(obj)参数。 返回一个类的实例，并且这个类的原型是传进来的obj参数</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function Create(obj)&#123;</div><div class="line">    function Class()&#123;&#125;;</div><div class="line">    Class.prototype = obj;</div><div class="line">    return new Class();</div><div class="line">    // new Class.__proto__ == obj   true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-	
+      
 	</div>
-  <a type="button" href="/2016/12/14/继承/#more" class="btn btn-default more">Leia Mais</a>
+
+<div class="meta">
+	
 </div>
+</article>
 
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2016/12/14/数组增删改查/" >数组</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2016-12-14  </div>
-		</div>
-	</div>
-	
+  <article class="post">
+	<h2 class="title">
+		<a href="2016/12/14/数组增删改查/">数组</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: <time datetime="2016-12-14T15:41:32.590Z" itemprop="datePublished">Dec 14, 2016</time>
+</div>
+      <div class="tags">Tags: 
 
 
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h1><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><ul>
+</div>
+    </div>
+      
+        <h1 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h1><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><ul>
 <li><p>push</p>
 </li>
 <li><p>向数组末尾增加项</p>
@@ -313,61 +259,53 @@ var _hmt = _hmt || [];
 <li>返回结果才是要查找的项，原数组不变</li>
 </ul>
 
-	
+      
 	</div>
-  <a type="button" href="/2016/12/14/数组增删改查/#more" class="btn btn-default more">Leia Mais</a>
+
+<div class="meta">
+	
 </div>
+</article>
 
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2016/12/14/在String上扩展方法/" >在String上扩展方法</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2016-12-14  </div>
-		</div>
-	</div>
-	
+  <article class="post">
+	<h2 class="title">
+		<a href="2016/12/14/在String上扩展方法/">在String上扩展方法</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: <time datetime="2016-12-14T03:06:30.396Z" itemprop="datePublished">Dec 14, 2016</time>
+</div>
+      <div class="tags">Tags: 
 
 
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="在String上扩展方法"><a href="#在String上扩展方法" class="headerlink" title="在String上扩展方法"></a>在String上扩展方法</h1><h2 id="获取浏览器地址栏信息"><a href="#获取浏览器地址栏信息" class="headerlink" title="获取浏览器地址栏信息"></a>获取浏览器地址栏信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">;(function () &#123;</div><div class="line">    function queryURLParameter() &#123;</div><div class="line">        var obj = &#123;&#125;,</div><div class="line">            reg = /([^?&amp;=#]+)=([^?&amp;=#]+)/g;</div><div class="line">        this.replace(reg, function () &#123;</div><div class="line">            obj[arguments[1]] = arguments[2];</div><div class="line">        &#125;);</div><div class="line">        //-&gt;获取hash值</div><div class="line">        reg = /#([^?&amp;=#]+)/;</div><div class="line">        if (reg.test(this)) &#123;</div><div class="line">            obj[&apos;HASH&apos;] = reg.exec(this)[1];</div><div class="line">        &#125;</div><div class="line">        return obj;</div><div class="line">    &#125;</div><div class="line">    String.prototype.queryURLParameter = queryURLParameter;</div><div class="line">    &#125;)();</div></pre></td></tr></table></figure>
+</div>
+    </div>
+      
+        <h1 id="在String上扩展方法"><a href="#在String上扩展方法" class="headerlink" title="在String上扩展方法"></a>在String上扩展方法</h1><h2 id="获取浏览器地址栏信息"><a href="#获取浏览器地址栏信息" class="headerlink" title="获取浏览器地址栏信息"></a>获取浏览器地址栏信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">;(function () &#123;</div><div class="line">    function queryURLParameter() &#123;</div><div class="line">        var obj = &#123;&#125;,</div><div class="line">            reg = /([^?&amp;=#]+)=([^?&amp;=#]+)/g;</div><div class="line">        this.replace(reg, function () &#123;</div><div class="line">            obj[arguments[1]] = arguments[2];</div><div class="line">        &#125;);</div><div class="line">        //-&gt;获取hash值</div><div class="line">        reg = /#([^?&amp;=#]+)/;</div><div class="line">        if (reg.test(this)) &#123;</div><div class="line">            obj[&apos;HASH&apos;] = reg.exec(this)[1];</div><div class="line">        &#125;</div><div class="line">        return obj;</div><div class="line">    &#125;</div><div class="line">    String.prototype.queryURLParameter = queryURLParameter;</div><div class="line">    &#125;)();</div></pre></td></tr></table></figure>
 <h2 id="格式化时间字符串"><a href="#格式化时间字符串" class="headerlink" title="格式化时间字符串"></a>格式化时间字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">   ;(function () &#123;</div><div class="line">   function formatTime(template) &#123;</div><div class="line">        template = template || &apos;&#123;0&#125;年&#123;1&#125;月&#123;2&#125;日 &#123;3&#125;时&#123;4]分&#123;5]秒&apos;;</div><div class="line">        var ary = this.match(/\d+/g);</div><div class="line">        template = template.replace(/\&#123;(\d+)\&#125;/g, function () &#123;</div><div class="line">            var index = arguments[1],</div><div class="line">                result = ary[index];</div><div class="line">            result = result || &apos;00&apos;;</div><div class="line">            result.length &lt; 2 ? result = &apos;0&apos; + result : null;</div><div class="line">            return ary[arguments[1]];</div><div class="line">        &#125;);</div><div class="line">        return template;</div><div class="line">    &#125;</div><div class="line">    String.prototype.formatTime = formatTime;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-	
+      
 	</div>
-  <a type="button" href="/2016/12/14/在String上扩展方法/#more" class="btn btn-default more">Leia Mais</a>
+
+<div class="meta">
+	
 </div>
+</article>
 
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2016/12/14/angular/" >angular</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2016-12-14  </div>
-		</div>
-	</div>
-	
+  <article class="post">
+	<h2 class="title">
+		<a href="2016/12/14/angular/">angular</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: <time datetime="2016-12-14T02:19:42.517Z" itemprop="datePublished">Dec 14, 2016</time>
+</div>
+      <div class="tags">Tags: 
 
 
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+</div>
+    </div>
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -377,133 +315,47 @@ var _hmt = _hmt || [];
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-	
+      
 	</div>
-  <a type="button" href="/2016/12/14/angular/#more" class="btn btn-default more">Leia Mais</a>
+
+<div class="meta">
+	
 </div>
-
-		
-
-		</div>
-
-		<!-- pagination -->
-		<div>
-  		<center>
-		<div class="pagination">
-
-   
-</div>
-
-  		</center>
-		</div>
-
-		
-		
-	</div> <!-- col-md-9 -->
-
-	
-		<div class="col-md-3">
-	<div id="sidebar">
-	
-			
-  <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Busca" class="st-search-input st-default-search-input form-control"/>
-   </div>  
-  <div id="local-search-result"></div>
-  </div>
+</article>
 
 
-		
-			
-		
-			
 
-		
-			
-<div class="widget">
-  <h4>Posts recentes</h4>
-  <ul class="entry list-unstyled">
-    
-      <li>
-        <a href="/2016/12/14/继承/" ><i class="fa fa-file-o"></i>继承</a>
-      </li>
-    
-      <li>
-        <a href="/2016/12/14/数组增删改查/" ><i class="fa fa-file-o"></i>数组</a>
-      </li>
-    
-      <li>
-        <a href="/2016/12/14/在String上扩展方法/" ><i class="fa fa-file-o"></i>在String上扩展方法</a>
-      </li>
-    
-      <li>
-        <a href="/2016/12/14/angular/" ><i class="fa fa-file-o"></i>angular</a>
-      </li>
-    
-  </ul>
-</div>
+    </div>
+    <footer id="footer">
+    <div style="display:inline">
+    Copyright &copy; 2016
 
-		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/" title="github" target="_blank"]);">Git</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/zhanglibin8/book" title="Book.book.book" target="_blank"]);">Book</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="http://work.zhufengpeixun.cn/stu815243393/" title="myJD" target="_blank"]);">MyProject</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/zhanglibin8/" title="My Github account." target="_blank"]);">My Github</a></li>
-	
-	</ul>
+    John Doe
+. Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> |
+    Theme is <a href="https://github.com/wd/hexo-fabric">hexo-fabric</a>, fork from <a href="http://github.com/panks/fabric">fabric</a> by <a href="http://panks.me">Pankaj Kumar</a>
 </div>
 
 
-		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
-
-	
-	
-</div> <!-- row-fluid -->
-	</div>
-  </div>
-  <div class="container-narrow">
-  <footer> <p>
-  &copy; 2016 John Doe
-  
-      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
-     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
-</p>
- </footer>
-</div> <!-- container-narrow -->
-  
-
-
-  
-<a id="gotop" href="#">   
-  <span>⬆︎TOP</span>
-</a>
-
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+    </footer>
+    <script src="/javascripts/fabric.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+	$('.fancybox').fancybox();
 })(jQuery);
 </script>
+ <!-- Delete or comment this line to disable Fancybox -->
 
 
 
+<!-- end toload --> 
+</div>
+</div>
+<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
+/*]]>*/
+</script><!-- remove it to remove the scroll to top button -->
 </body>
-   </html>
+</html>
